@@ -28,6 +28,6 @@ pipeline {
                 // Package the project
                 sh 'mvn package'
             }
-        }
-    }
+        } // <-- Ajout de la parenthèse manquante ici
+    } // <-- Ajout de la parenthèse manquante ici
 }
