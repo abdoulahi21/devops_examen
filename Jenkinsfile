@@ -28,7 +28,7 @@ pipeline {
                 // Package the project
                 sh 'mvn package'
             }
-<<<<<<< HEAD
+
         }
 
         stage('SonarQube Analysis') {
