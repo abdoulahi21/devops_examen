@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    tools {
+    tools{
         maven 'maven'
     }
 
@@ -28,6 +28,17 @@ pipeline {
                 // Package the project
                 sh 'mvn package'
             }
-        }
-    }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarScanner'
+                    withSonarQubeEnv('Sonar-Server') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
+    }
 }
